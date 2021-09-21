@@ -29,4 +29,19 @@ var generatePassword = function () {
   var useNumeric = confirm("Should the password use numbers?");
   var useSpecial = confirm("Should the password use special characters?");
 
+  // Build usable characters string based on password parameters
+  var usableCharacters = "";
+  if(useLowercase) usableCharacters += "abcdefghijklmnopqrstuvwxyz";
+  if(useUppercase) usableCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if(useNumeric) usableCharacters += "1234567890";
+  if(useSpecial) usableCharacters += "`-=[]\\;',./~!@#$%^&*()_+{}|:\"<>?";
+
+  var getRandomUsableCharacter = function() {
+    var randomIndex = Math.floor(Math.random() * usableCharacters.length)
+    return usableCharacters[randomIndex];
+  }
+
+  // console.log(getRandomUsableCharacter());
+
+  // Add a random charater for each character 
 }
