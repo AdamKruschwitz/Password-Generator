@@ -43,5 +43,12 @@ var generatePassword = function () {
 
   // console.log(getRandomUsableCharacter());
 
-  // Add a random charater for each character 
+  // Add a random charater for each character in the length of the password 
+  var password = "";
+  for(i=0; i<passwordLength; i++) {
+    password += getRandomUsableCharacter();
+  }
+
+  // return the result.
+  return password;
 }
