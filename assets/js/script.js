@@ -19,7 +19,9 @@ var generatePassword = function () {
   var passwordLength;
   var askAgain;
   do {
+    // Ask again by default
     askAgain=true;
+    
     passwordLength = prompt("password length (8-128)");
     // By default prompt returns a string, this converts into a number
     passwordLength = parseInt(passwordLength);
@@ -35,17 +37,27 @@ var generatePassword = function () {
   } while(askAgain);
 
   //Get password parameters
-  var useLowercase = confirm("Should the password use lowercase characters?");
-  var useUppercase = confirm("Should the password use Uppercase characters?");
-  var useNumeric = confirm("Should the password use numbers?");
-  var useSpecial = confirm("Should the password use special characters?");
+  do {
+    // Ask agian by default.
+    askAgain=true;
 
-  // Build usable characters string based on password parameters
-  var usableCharacters = "";
-  if(useLowercase) usableCharacters += "abcdefghijklmnopqrstuvwxyz";
-  if(useUppercase) usableCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  if(useNumeric) usableCharacters += "1234567890";
-  if(useSpecial) usableCharacters += "`-=[]\\;',./~!@#$%^&*()_+{}|:\"<>?";
+    var useLowercase = confirm("Should the password use lowercase characters?");
+    var useUppercase = confirm("Should the password use Uppercase characters?");
+    var useNumeric = confirm("Should the password use numbers?");
+    var useSpecial = confirm("Should the password use special characters?");
+
+    // Build usable characters string based on password parameters
+    var usableCharacters = "";
+    if(useLowercase) usableCharacters += "abcdefghijklmnopqrstuvwxyz";
+    if(useUppercase) usableCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if(useNumeric) usableCharacters += "1234567890";
+    if(useSpecial) usableCharacters += "`-=[]\\;',./~!@#$%^&*()_+{}|:\"<>?";
+
+    // Check the user chose at least one acceptible type, and if they did don't ask again.
+    if(!usableCharacters) alert("Please choose at least one acceptable character set.");
+    else askAgain=false;
+
+  } while(askAgain);
 
   var getRandomUsableCharacter = function() {
     var randomIndex = Math.floor(Math.random() * usableCharacters.length)
