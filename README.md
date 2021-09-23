@@ -1,9 +1,9 @@
 # Project Title
 
-A website that can be used to generate a random secure password based on user submitted criteria. Supports english alphabet characters, numbers, and special characters.
+A website that can be used to generate a random secure password based on user submitted criteria. Supports english alphabet characters, numbers, and special characters. Created as a homework for the Berkley Full Stack Web Development Coding Bootcamp.
 
 ## Work Done
-All HTML and CSS were provided for this homework, along with lines 1-14 of script.js. I implemented the generatePassword function which prompts the user to enter the length of a password
+All HTML and CSS were provided for this homework, along with lines 1-14 of script.js. I implemented the generatePassword function which prompts the user to enter the desired length of the password, and acceptible character types including upper and lower english alphabet characters, numbers, or special characters. The program also checks that the length is within the bounds of 8-128 characters and there is at least one acceptible character type selected.
 
 ## Built With
 
@@ -13,10 +13,10 @@ All HTML and CSS were provided for this homework, along with lines 1-14 of scrip
 
 ## Deployed Link
 
-* [See Live Site](#)
+* [See Live Site](https://adamkruschwitz.github.io/Password-Generator/)
 
 ## Screenshot
-![Image of password generator site](#)
+![Image of password generator site](./assets/images/03-javascript-homework-demo.png)
 
 ## Authors
 ### Adam Kruschwitz
