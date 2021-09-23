@@ -17,11 +17,22 @@ generateBtn.addEventListener("click", writePassword);
 var generatePassword = function () {
   // Get the password length from the user, between 8-128 inclusive
   var passwordLength;
+  var askAgain;
   do {
-    passwordLength = prompt("password length (8-128");
+    askAgain=true;
+    passwordLength = prompt("password length (8-128)");
     // By default prompt returns a string, this converts into a number
     passwordLength = parseInt(passwordLength);
-  } while(passwordLength < 8 || passwordLength > 129);
+
+    // Check password length fits criteria and was accepted correctly
+    if(!passwordLength) alert("length not recognized, please provide a number 8-128. ex: 69");
+    else if(passwordLength < 8) alert("Password too short!");
+    else if(passwordLength > 128) alert("Password too long!");
+
+    // If password length fits the criteria, do not ask for the length again.
+    else askAgain = false;
+
+  } while(askAgain);
 
   //Get password parameters
   var useLowercase = confirm("Should the password use lowercase characters?");
